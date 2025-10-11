@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --spacing-container: 1440px;
+  --color-surface-button-onColor: #fff;
 }
 
 @theme inline {
@@ -12,6 +13,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --spacing-container: var(--spacing-container);
+  --color-surface-button-onColor: var(--color-surface-button-onColor);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,5 +34,11 @@ body {
     max-width: var(--spacing-container);
     margin: 0 auto;
     padding: 0 32px !important;
+  }
+  @media (max-width: 1229px) {
+    .container {
+      max-width: 100%;
+      padding: 0 16px !important;
+    }
   }
 }
