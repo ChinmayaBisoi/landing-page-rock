@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Image from "next/image";
+import { HeroHeading } from "~/components/Hero";
 import Navbar from "~/components/Navbar";
 
 const inter = Inter({
@@ -31,11 +32,13 @@ export default function Home() {
           alt="Hero"
           width={1920}
           height={1080}
-          className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom"
+          className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom -z-10"
           priority
         />
+        <div className="">
+          <HeroHeading />
+        </div>
       </div>
-      {/* <Hero /> */}
     </div>
   );
 }
