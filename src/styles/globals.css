@@ -5,6 +5,12 @@
   --foreground: #171717;
   --spacing-container: 1440px;
   --color-surface-button-onColor: #fff;
+  --color-surface-button-onColor-subtle: #313131;
+  --color-surface-button-onColor-subtle-hover: #626262;
+  --color-surface-rever-glassmore-10: #0000001a;
+  --color-surface-rever-glassmore-20: #00000033;
+  --color-outline-glassmorph-onColor: #fff3;
+  --color-onColor-default: #0000001a;
 }
 
 @theme inline {
@@ -14,6 +20,16 @@
   --font-mono: var(--font-geist-mono);
   --spacing-container: var(--spacing-container);
   --color-surface-button-onColor: var(--color-surface-button-onColor);
+  --color-surface-button-onColor-subtle: var(
+    --color-surface-button-onColor-subtle
+  );
+  --color-surface-button-onColor-subtle-hover: var(
+    --color-surface-button-onColor-subtle-hover
+  );
+  --color-surface-rever-glassmore-10: var(--color-surface-rever-glassmore-10);
+  --color-surface-rever-glassmore-20: var(--color-surface-rever-glassmore-20);
+  --color-outline-glassmorph-onColor: var(--color-outline-glassmorph-onColor);
+  --color-onColor-default: var(--color-onColor-default);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,4 +57,28 @@ body {
       padding: 0 16px !important;
     }
   }
+}
+
+/* Text Type CSS */
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.text-type__cursor {
+  margin-left: 0rem;
+  display: inline-block;
+  opacity: 1;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}
+
+.bg-blur1 {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-outline-glassmorph-onColor);
+  background-color: var(--color-onColor-default);
+  backdrop-filter: blur(80px);
 }
