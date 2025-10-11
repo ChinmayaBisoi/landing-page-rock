@@ -1,6 +1,9 @@
-import FundingBanner from "./FundingBanner";
+import Image from "next/image";
+import FundingBanner from "~/components/FundingBanner";
+import TextType from "~/components/TextType";
+import WizardForm from "~/components/WizardForm";
 
-export function HeroHeading() {
+function HeroHeading() {
   return (
     <div className="flex flex-col grow gap-2 text-center">
       <FundingBanner />
@@ -29,9 +32,22 @@ export function HeroHeading() {
                   transform: "rotateX(0deg)",
                 }}
               >
-                <p className="text-[20px] leading-[140%] max-sm:text-[18px] underline underline-offset-1 outline-white text-white font-medium">
-                  internal tool.<span className="animate-pulse">|</span>
-                </p>
+                <div className="text-[20px] leading-[140%] max-sm:text-[18px] underline underline-offset-1 outline-white text-white font-medium">
+                  <TextType
+                    text={[
+                      "internal tool.",
+                      "dashboard.",
+                      "landing page.",
+                      "website.",
+                    ]}
+                    typingSpeed={75}
+                    pauseDuration={1500}
+                    showCursor={true}
+                    cursorCharacter="|"
+                    cursorClassName=""
+                    className="underline underline-offset-1"
+                  />{" "}
+                </div>
               </div>
               <div
                 className="absolute inset-0 transition-opacity duration-500 outline outline-white opacity-0"
@@ -46,6 +62,171 @@ export function HeroHeading() {
               </div>
             </div>
           </div>{" "}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HeroIntegrations() {
+  return (
+    <div className="flex max-md:flex-col bg-blur1 rounded-[20px] max-sm:gap-0 mx-auto max-sm:w-full">
+      <div className="flex flex-col max-sm:w-full items-start gap-3 py-3 px-5 max-sm:p-4 border-r border-outline-glassmorph-onColor max-sm:border-b max-sm:border-r-0">
+        <p className="text-[14px] leading-[150%] text-white opacity-50 max-sm:w-full max-sm:text-center">
+          Frameworks
+        </p>
+        <div className="flex gap-5 max-sm:justify-center max-sm:w-full">
+          <div data-tooltip-id="flutter">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   bg-[position:0_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="html">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   bg-[position:-44px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="nextjs">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   bg-[position:-85px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="react">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   bg-[position:-119px_0] !bg-[length:660px]'
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col max-sm:w-full items-start gap-3 py-3 px-5 max-sm:p-4 max-sm:px-4">
+        <p className="text-[14px] leading-[150%] text-white opacity-50 max-sm:w-full max-sm:text-center">
+          Integrations
+        </p>
+        <div className="flex max-sm:flex-wrap justify-start gap-[18px] max-sm:justify-center">
+          <div data-tooltip-id="github">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-177px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="supabase">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-219px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="figma">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-260px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="netlify">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-295px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="stripe">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-340px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="OpenAI">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-382px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="Anthropic">
+            <div
+              className='w-6 h-5 mt-1 bg-no-repeat bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+                opacity-50 hover:opacity-100 bg-[length:500px] bg-[position:-298px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="Gemini">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-476px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="Perplexity">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-520px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="Google-Analytics">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-560px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="AdSense">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-600px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="Resend">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-642px_0]'
+            ></div>
+          </div>
+          <div data-tooltip-id="Twilio">
+            <div
+              className='w-6 h-6 bg-no-repeat opacity-50 hover:opacity-100 bg-[length:712px]
+  bg-[url("https://assets.rocket.new/rocket/tech-stack-white.webp")]
+   cursor-pointer bg-[position:-688px_0]'
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Hero() {
+  return (
+    <div className="min-h-[80vh] flex flex-col">
+      <Image
+        placeholder="blur"
+        blurDataURL="/assets/hero-placeholder.png"
+        src="/assets/hero.webp"
+        alt="Hero"
+        width={1920}
+        height={1080}
+        className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom -z-10"
+        priority
+      />
+      <div className="my-auto">
+        <div className="flex flex-col gap-[40px] max-sm:gap-[40px] container my-auto">
+          <div className="flex flex-col gap-8">
+            <HeroHeading />
+            <WizardForm />
+          </div>
+          <HeroIntegrations />
         </div>
       </div>
     </div>
