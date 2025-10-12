@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Image from "next/image";
 import Hero from "~/components/Hero";
 import Navbar from "~/components/Navbar";
+import TrustedBy from "~/components/TrustedBy";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,10 +22,10 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <div className={`${inter.className} font-sans min-h-screen`}>
-      <div className="">
-        <Navbar />
-      </div>
+      {/* <Navbar /> */}
       <Hero />
+
+      <TrustedBy />
     </div>
   );
 }

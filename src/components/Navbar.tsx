@@ -9,7 +9,7 @@ function Navbar() {
       <div className="container flex grow justify-between items-center">
         <div className="w-[30%] max-sm:w-auto">
           <div
-            className="h-8 w-auto block max-sm:w-20 cursor-pointer"
+            className="h-8 w-auto block max-sm:w-20 cursor-pointer text-white"
             role="button"
           >
             <Logo />

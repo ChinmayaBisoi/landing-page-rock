@@ -32,11 +32,25 @@
   --color-onColor-default: var(--color-onColor-default);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+.home_page {
+  max-height: 100%;
+  padding-top: 148px;
+  position: relative;
+}
+
+.home_page .hero_section {
+  flex-direction: column;
+  min-height: 90vh;
+  display: flex;
+  position: relative;
+  top: -148px;
 }
 
 body {
@@ -81,4 +95,23 @@ body {
   border-color: var(--color-outline-glassmorph-onColor);
   background-color: var(--color-onColor-default);
   backdrop-filter: blur(80px);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 20s linear infinite;
 }
