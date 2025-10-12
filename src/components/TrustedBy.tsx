@@ -24,6 +24,7 @@ function TrustedBy() {
                 src="/assets/trusted-by.webp"
                 style={{ color: "transparent" }}
               />
+
               <Image
                 alt="customer"
                 loading="lazy"
@@ -36,6 +37,19 @@ function TrustedBy() {
                 style={{ color: "transparent" }}
               />
             </div>
+            {/* <div className="object-contain h-20 marquee-content">
+              <Image
+                alt="customer"
+                loading="lazy"
+                width="2500"
+                height="140"
+                decoding="async"
+                data-nImage="1"
+                className="object-contain"
+                src="/assets/trusted-by.webp"
+                style={{ color: "transparent" }}
+              />
+            </div> */}
           </div>
         </div>
       </div>

@@ -113,5 +113,6 @@ body {
 
 .marquee-content {
   display: flex;
+  width: 2500px;
   animation: marquee 20s linear infinite;
 }
