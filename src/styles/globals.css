@@ -11,6 +11,9 @@
   --color-surface-rever-glassmore-20: #00000033;
   --color-outline-glassmorph-onColor: #fff3;
   --color-onColor-default: #0000001a;
+  --color-onColor-heading: #fff;
+  --color-surface-card: #eeede9;
+  --color-link: #0057e6;
 }
 
 @theme inline {
@@ -30,6 +33,9 @@
   --color-surface-rever-glassmore-20: var(--color-surface-rever-glassmore-20);
   --color-outline-glassmorph-onColor: var(--color-outline-glassmorph-onColor);
   --color-onColor-default: var(--color-onColor-default);
+  --color-onColor-heading: var(--color-onColor-heading);
+  --color-surface-card: var(--color-surface-card);
+  --color-link: var(--color-link);
 }
 
 /* @media (prefers-color-scheme: dark) {
