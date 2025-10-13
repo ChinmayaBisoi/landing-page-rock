@@ -251,6 +251,7 @@ export default function Hero() {
         <div className="hero_section">
           <div className="flex flex-col">
             <Navbar />
+            <Navbar showStickyNavbar />
           </div>
 
           <div className="my-auto z-10">
