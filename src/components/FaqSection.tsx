@@ -1,5 +1,3 @@
-import React from "react";
-import ChevronDown from "~/icons/ChevronDown";
 import Accordion from "./ui/Accordion";
 
 const faqs = [
@@ -9,7 +7,7 @@ const faqs = [
       "Rocket is your AI-powered co-pilot for building production-ready apps and websites. Think of it as a Product Manager and Engineer in one- turning your plain-language prompts into full apps and websites, complete with backend, integrations, and hosting. No coding required.",
   },
   {
-    title: "How&apos;s Rocket different from other vibe coding platforms?",
+    title: "How's Rocket different from other vibe coding platforms?",
     content:
       "Most platforms stop at single page mockups or prototypes. Rocket delivers production-ready full apps- complete with backend, integrations, and hosting. It's not just no-code; it's launch-ready code.",
   },
