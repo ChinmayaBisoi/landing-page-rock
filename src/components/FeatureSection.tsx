@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import HowItWorks from "~public/assets/how-it-works.webp";
+import { cn } from "~/lib/utils";
+import { throttle } from "~/lib/general";
 
 function HowRocketDoesIt() {
   return (
@@ -47,11 +49,11 @@ function HowRocketDoesIt() {
 }
 
 const features = ["One prompt", "Backend", "Launch", "Templates"];
-function FeaturesSidebar() {
+function FeaturesSidebar({ activeIndex }: { activeIndex: number }) {
   return (
     <div className="max-sm:hidden w-full lg:w-[160px] flex-shrink-0 sticky max-sm:top-[65px] -mr-[16px] bg-surface-default z-10 lg:top-[160px] lg:bg-transparent h-fit">
       <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible max-sm:gap-4">
-        {features.map((feature) => (
+        {features.map((feature, index) => (
           <div
             key={feature}
             onClick={() => {
@@ -62,7 +64,9 @@ function FeaturesSidebar() {
                 element.scrollIntoView({ behavior: "smooth", block: "center" });
               }
             }}
-            className="flex items-center gap-2 cursor-pointer py-3 px-2 relative min-sm:border-b border-dashed border-outline-default-primary-default nav-item whitespace-nowrap opacity-100"
+            className={`flex items-center gap-2 cursor-pointer py-3 px-2 relative min-sm:border-b border-dashed border-outline-default-primary-default nav-item whitespace-nowrap transition-opacity duration-300 ${
+              activeIndex === index ? "opacity-100" : "opacity-40"
+            }`}
           >
             <div className="w-1 h-1 rounded-full  bg-heading shrink-0"></div>
             <p className="text-[16px] leading-[150%] font-semibold grow">
@@ -71,6 +75,51 @@ function FeaturesSidebar() {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function FeatureTemplateSection() {
+  const templates = [
+    { id: "landing-page", name: "Landing Page" },
+    { id: "web-app", name: "Web App" },
+    { id: "brand-website", name: "Brand Website" },
+    { id: "internal-tool", name: "Internal Tool" },
+    { id: "mobile-app", name: "Mobile App" },
+    { id: "dashboard", name: "Dashboard" },
+  ];
+  const [selectedTemplate, setSelectedTemplate] = useState<string | null>(
+    "landing-page"
+  );
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-2">
+        {templates.map((template) => (
+          <button
+            key={template.id}
+            onClick={() => setSelectedTemplate(template.id)}
+            className={cn(
+              `px-2 py-0.5 rounded-lg transition-colors bg-white border cursor-pointer text-heading`,
+              selectedTemplate === template.id ? "border-black" : "border-white"
+            )}
+          >
+            <p className="text-[12px] leading-[150%] text-heading">
+              {template.name}
+            </p>
+          </button>
+        ))}
+      </div>
+      {selectedTemplate && (
+        <div className="relative rounded-[12px] overflow-hidden h-[260px] max-sm:h-[160px]">
+          <Image
+            src={`/assets/feature-template/${selectedTemplate}.webp`}
+            alt={selectedTemplate}
+            width={800}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
     </div>
   );
 }
@@ -161,6 +210,7 @@ const featureDetails = [
         by upto 80%.
       </>
     ),
+    content: <FeatureTemplateSection />,
     btnTitle: "Explore more templates",
   },
 ];
@@ -204,11 +254,9 @@ function FeatureStep({
 function FeatureDetailCard({
   feature,
   index,
-  content,
 }: {
   feature: (typeof featureDetails)[number];
   index: number;
-  content?: React.ReactNode;
 }) {
   return (
     <section
@@ -227,8 +275,8 @@ function FeatureDetailCard({
             {feature.description}
           </p>
         </div>
-        {content ? (
-          content
+        {feature.content ? (
+          feature.content
         ) : (
           <div className="flex flex-col gap-2">
             <p className="text-[14px] leading-[150%] text-body uppercase">
@@ -286,57 +334,76 @@ function FeatureDetailsContainer() {
 }
 
 function FeaturesContainer() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+
+      const container = containerRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const viewportMiddle = window.innerHeight / 2;
+
+      // Calculate how far the viewport middle has scrolled past the start of the container
+      const scrolledPastStart = viewportMiddle - containerRect.top;
+
+      // Calculate the total scrollable height of the container
+      const containerHeight = containerRect.height;
+
+      // Calculate progress as a percentage (0 to 1)
+      const progress = Math.max(
+        0,
+        Math.min(1, scrolledPastStart / containerHeight)
+      );
+
+      // Divide into 4 sections (25% each for 4 features)
+      const newIndex = Math.min(3, Math.floor(progress * 4));
+
+      if (newIndex !== activeIndex) {
+        setActiveIndex(newIndex);
+      }
+    };
+
+    const throttledHandleScroll = throttle(handleScroll, 200);
+
+    window.addEventListener("scroll", throttledHandleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", throttledHandleScroll);
+  }, [activeIndex]);
+
+  const images = [
+    "/assets/rocket-1.webp",
+    "/assets/rocket-2.webp",
+    "/assets/rocket-3.webp",
+    "/assets/rocket-4.webp", // Using rocket-1 again for the 4th feature
+  ];
+
   return (
-    <div className="flex max-lg:flex-col gap-4">
-      <FeaturesSidebar />
+    <div ref={containerRef} className="flex max-lg:flex-col gap-4">
+      <FeaturesSidebar activeIndex={activeIndex} />
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-[40px]">
         <div className="max-sm:hidden relative flex justify-center items-center w-[558px] max-xl:w-[300px] h-[300px] lg:h-[600px] lg:sticky lg:top-32 order-2 lg:order-1">
           <div className="w-full max-lg:max-w-[300px] max-w-[500px] h-full relative">
             <div className="w-full h-full relative">
-              <Image
-                src="/assets/rocket-1.webp"
-                alt="feature-section-image"
-                width={1000}
-                height={1200}
-                style={{
-                  verticalAlign: "top",
-                  width: "500px",
-                  height: "600px",
-                }}
-              />
-              <Image
-                src="/assets/rocket-1.webp"
-                alt="feature-section-image"
-                width={1000}
-                height={1200}
-                style={{
-                  verticalAlign: "top",
-                  width: "500px",
-                  height: "600px",
-                }}
-              />
-              <Image
-                src="/assets/rocket-1.webp"
-                alt="feature-section-image"
-                width={1000}
-                height={1200}
-                style={{
-                  verticalAlign: "top",
-                  width: "500px",
-                  height: "600px",
-                }}
-              />
-              <Image
-                src="/assets/rocket-1.webp"
-                alt="feature-section-image"
-                width={1000}
-                height={1200}
-                style={{
-                  verticalAlign: "top",
-                  width: "500px",
-                  height: "600px",
-                }}
-              />
+              {images.map((src, index) => (
+                <Image
+                  key={index}
+                  src={src}
+                  alt={`feature-section-image-${index + 1}`}
+                  width={1000}
+                  height={1200}
+                  className={`absolute inset-0 transition-opacity duration-500 max-xl:hidden ${
+                    activeIndex === index ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{
+                    verticalAlign: "top",
+                    width: "500px",
+                    height: "600px",
+                  }}
+                />
+              ))}
             </div>
           </div>
         </div>

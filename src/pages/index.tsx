@@ -32,7 +32,6 @@ export default function Home() {
         </title>
       </Head>
       <Hero />
-
       <TrustedBy />
       <FeatureSection />
       <Testimonials />
