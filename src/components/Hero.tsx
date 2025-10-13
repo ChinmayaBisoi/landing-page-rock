@@ -2,7 +2,8 @@ import Image from "next/image";
 import FundingBanner from "~/components/FundingBanner";
 import TextType from "~/components/TextType";
 import WizardForm from "~/components/WizardForm";
-import Navbar from "./Navbar";
+import Navbar from "~/components/Navbar";
+import HeroImage from "~public/assets/hero.webp";
 
 function HeroHeading() {
   return (

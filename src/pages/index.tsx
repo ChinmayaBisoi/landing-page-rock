@@ -1,7 +1,11 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Image from "next/image";
+import FaqSection from "~/components/FaqSection";
+import FeatureSection from "~/components/FeatureSection";
 import Hero from "~/components/Hero";
+import Testimonials from "~/components/marketing/Testimonials";
 import Navbar from "~/components/Navbar";
+import StartBuildingNow from "~/components/StartBuildingNow";
 import TrustedBy from "~/components/TrustedBy";
 
 const inter = Inter({
@@ -26,6 +30,10 @@ export default function Home() {
       <Hero />
 
       <TrustedBy />
+      <FeatureSection />
+      <Testimonials />
+      <FaqSection />
+      <StartBuildingNow />
     </div>
   );
 }
