@@ -15,6 +15,8 @@
   --color-surface-card: #eeede9;
   --color-link: #0057e6;
   --color-onColor-body: #c4c4c4;
+  --color-surface-button-default: #000;
+  --color-surface-button-default-hover: #313131;
 }
 
 @theme inline {
@@ -38,6 +40,10 @@
   --color-surface-card: var(--color-surface-card);
   --color-link: var(--color-link);
   --color-onColor-body: var(--color-onColor-body);
+  --color-surface-button-default: var(--color-surface-button-default);
+  --color-surface-button-default-hover: var(
+    --color-surface-button-default-hover
+  );
 }
 
 /* @media (prefers-color-scheme: dark) {
