@@ -52,6 +52,10 @@
     --foreground: #ededed;
   }
 } */
+html {
+  @apply !overscroll-y-none;
+  overscroll-behavior-y: none !important;
+}
 
 .home_page {
   max-height: 100%;
