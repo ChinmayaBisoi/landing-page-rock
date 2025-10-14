@@ -4,6 +4,7 @@ import TextType from "~/components/TextType";
 import WizardForm from "~/components/WizardForm";
 import Navbar from "~/components/Navbar";
 import HeroImage from "~public/assets/hero.webp";
+import { useEffect } from "react";
 
 function HeroHeading() {
   return (
@@ -210,37 +211,22 @@ function HeroIntegrations() {
 }
 
 export default function Hero() {
-  // return (
-  //   <div className="min-h-[80vh] flex flex-col">
-  //     <Image
-  //       placeholder="blur"
-  //       blurDataURL="/assets/hero-placeholder.png"
-  //       src="/assets/hero.webp"
-  //       alt="Hero"
-  //       width={1920}
-  //       height={1080}
-  //       className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom"
-  //       priority
-  //     />
-  //     <div className="my-auto z-10">
-  //       <div className="flex flex-col gap-[40px] max-sm:gap-[40px] container my-auto">
-  //         <div className="flex flex-col gap-8">
-  //           <HeroHeading />
-  //           <WizardForm />
-  //         </div>
-  //         <HeroIntegrations />
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+  useEffect(() => {
+    const preloadLink = document.createElement("link");
+
+    preloadLink.rel = "preload";
+    preloadLink.as = "image";
+    preloadLink.href = "/assets/hero.webp";
+    document.head.appendChild(preloadLink);
+  }, []);
 
   return (
     <div className="overflow-hidden">
       <div className="min-h-screen max-w-[1920px] mx-auto max-sm:min-h-auto flex flex-col w-full bg-foundation-white home_page relative overlay_bg !min-h-auto">
         {/*  */}
         <Image
-          placeholder="blur"
-          src={HeroImage}
+          // placeholder="blur"
+          src={"/assets/hero.webp"}
           alt="Hero"
           width={1920}
           height={1080}
