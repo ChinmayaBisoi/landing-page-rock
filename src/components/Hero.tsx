@@ -240,8 +240,7 @@ export default function Hero() {
         {/*  */}
         <Image
           placeholder="blur"
-          blurDataURL="/assets/hero-placeholder.png"
-          src="/assets/hero.webp"
+          src={HeroImage}
           alt="Hero"
           width={1920}
           height={1080}

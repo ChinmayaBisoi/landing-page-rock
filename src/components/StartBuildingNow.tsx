@@ -183,11 +183,10 @@ function SocialsAndFooter() {
 function StartBuildingNow() {
   return (
     <div className="overlay_bg_top flex flex-col justify-between pt-[80px] max-w-[1920px] mx-auto overflow-hidden relative max-h-full min-h-[1180px] 2xl:min-h-[1450px] max-sm:min-h-[1100px]">
-      {/*  */}
-      {/*  */}
       <Image
         alt="start-building"
         src={StartBuildingImage}
+        placeholder="blur"
         width={1920}
         height={1180}
         className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom"
@@ -211,165 +210,6 @@ function StartBuildingNow() {
             </p>
           </div>
           <WizardForm />
-          {/* <form className="w-full h-full overflow-hidden">
-            <div className="flex flex-col gap-4 max-w-[766px] w-full mx-auto">
-              <div className="flex flex-col gap-2 w-full flex-shrink-0 relative">
-                <div
-                  className="w-full flex flex-col mx-auto overflow-hidden relative rounded-[20px]
-                 
-                  bg-white shadow-[0px_4px_10px_0px_var(--color-shadow-light)] "
-                >
-                  <div className="relative grow h-full max-sm:overflow-auto">
-                    <textarea
-                      name="prompt"
-                      rows="4"
-                      className="block text-black relative z-1 resize-none overflow-auto py-5 pb-0 px-5 w-full max-h-[250px] min-h-[80px] bg-transparent placeholder:text-black placeholder:opacity-50 text-[14px] placeholder:text-[14px] focus:outline-none leading-[150%]"
-                      placeholder="What can I build for you today?"
-                    ></textarea>
-                  </div>
-                  <div className="px-5 pb-3 pt-3 flex w-full relative z-1">
-                    <div className="flex gap-2 grow">
-                      <div
-                        className="relative w-max "
-                        data-sentry-component="UploadDropdown"
-                        data-sentry-source-file="uploadDropdown.tsx"
-                      >
-                        <div className="flex gap-2">
-                          <div
-                            data-sentry-component="UploadAttachments"
-                            data-sentry-source-file="uploadDropdown.tsx"
-                          >
-                            <input
-                              id="fileInput"
-                              className="hidden"
-                              accept="image/png, image/jpeg, image/jpg, image/webp"
-                              type="file"
-                              name="files"
-                            />
-                            <button
-                              className="relative flex items-center justify-center cursor-pointer bg-surface-rever-glassmore-10 text-heading hover:bg-surface-rever-glassmore-20 disabled:hover:bg-surface-rever-glassmore-10 w-[26px] h-[26px] rounded-6 disabled:opacity-80 disabled:text-disabled-default focus:outline-none disabled:cursor-not-allowed !bg-onColor-glassmorph-10 hover:!bg-onColor-glassmorph-20 rightAnimation"
-                              aria-disabled="false"
-                              aria-busy="false"
-                              type="button"
-                              aria-label="Attach"
-                              data-sentry-element="Button"
-                              data-sentry-source-file="uploadDropdown.tsx"
-                            >
-                              <div className="w-full flex items-center justify-center">
-                                <div className="flex items-center justify-center gap-1">
-                                  <div className="w-[16px] h-[16px] flex justify-center items-center">
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="1em"
-                                      height="1em"
-                                      fill="currentColor"
-                                      viewBox="0 0 256 256"
-                                      className="text-black"
-                                      data-sentry-element="Paperclip"
-                                      data-sentry-source-file="uploadDropdown.tsx"
-                                    >
-                                      <path d="M209.66,122.34a8,8,0,0,1,0,11.32l-82.05,82a56,56,0,0,1-79.2-79.21L147.67,35.73a40,40,0,1,1,56.61,56.55L105,193A24,24,0,1,1,71,159L154.3,74.38A8,8,0,1,1,165.7,85.6L82.39,170.31a8,8,0,1,0,11.27,11.36L192.93,81A24,24,0,1,0,159,47L59.76,147.68a40,40,0,1,0,56.53,56.62l82.06-82A8,8,0,0,1,209.66,122.34Z"></path>
-                                    </svg>
-                                  </div>
-                                </div>
-                              </div>
-                            </button>
-                          </div>
-                          <div
-                            className="max-sm:hidden"
-                            data-sentry-component="AddFigma"
-                            data-sentry-source-file="uploadDropdown.tsx"
-                          >
-                            <button
-                              data-tooltip-id="figma-import"
-                              className="relative flex w-max items-center justify-center cursor-pointer bg-surface-rever-glassmore-10 text-heading hover:bg-surface-rever-glassmore-20 disabled:hover:bg-surface-rever-glassmore-10 py-[5px] px-3 h-[26px] rounded-6 disabled:opacity-80 disabled:text-disabled-default focus:outline-none disabled:cursor-not-allowed !bg-onColor-glassmorph-10 hover:!bg-onColor-glassmorph-20 rightAnimation"
-                              aria-disabled="false"
-                              aria-busy="false"
-                              type="button"
-                              data-sentry-element="Button"
-                              data-sentry-source-file="uploadDropdown.tsx"
-                            >
-                              <div className="w-full flex items-center justify-center">
-                                <div className="flex items-center justify-center gap-1">
-                                  <span className="w-[16px] h-[16px] flex items-center">
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      id="Layer_1"
-                                      viewBox="0 0 200 300"
-                                      width="14px"
-                                      height="14px"
-                                    >
-                                      <title>Figma</title>
-                                      <desc>Created using Figma</desc>
-                                      <path
-                                        id="path0_fill"
-                                        className="st0"
-                                        fill="#0acf83"
-                                        d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z"
-                                      ></path>
-                                      <path
-                                        id="path1_fill"
-                                        className="st1"
-                                        fill="#a259ff"
-                                        d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z"
-                                      ></path>
-                                      <path
-                                        id="path1_fill_1_"
-                                        className="st2"
-                                        fill="#f24e1e"
-                                        d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z"
-                                      ></path>
-                                      <path
-                                        id="path2_fill"
-                                        className="st3"
-                                        fill="#ff7262"
-                                        d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z"
-                                      ></path>
-                                      <path
-                                        id="path3_fill"
-                                        className="st4"
-                                        fill="#1abcfe"
-                                        d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z"
-                                      ></path>
-                                    </svg>
-                                  </span>
-                                  <p className="text-[12px] leading-[150%] text-black">
-                                    Import
-                                  </p>
-                                </div>
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                      <button className="relative flex items-center justify-center cursor-pointer bg-surface-button-onColor-subtle text-onColor-heading hover:bg-surface-button-onColor-subtle-hover disabled:hover:bg-surface-button-onColor-subtle w-[26px] h-[26px] rounded-6 disabled:opacity-80 disabled:text-disabled-default focus:outline-none disabled:cursor-not-allowed disabled:!bg-primary-200 disabled:!text-primary-300 rightAnimation">
-                        <div className="w-full flex items-center justify-center pointer-events-none">
-                          <div className="flex items-center justify-center gap-1">
-                            <div className="w-[16px] h-[16px] flex justify-center items-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="1em"
-                                height="1em"
-                                fill="currentColor"
-                                viewBox="0 0 256 256"
-                                className=""
-                                data-sentry-element="ArrowUp"
-                                data-sentry-source-file="welcome.tsx"
-                              >
-                                <path d="M205.66,117.66a8,8,0,0,1-11.32,0L136,59.31V216a8,8,0,0,1-16,0V59.31L61.66,117.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,117.66Z"></path>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form> */}
         </div>
       </div>
       <SocialsAndFooter />

@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import HowItWorks from "~public/assets/how-it-works.webp";
 import { cn } from "~/lib/utils";
 import { throttle } from "~/lib/general";
+import Rocket1 from "~public/assets/rocket-1.webp";
+import Rocket2 from "~public/assets/rocket-2.webp";
+import Rocket3 from "~public/assets/rocket-3.webp";
+import Rocket4 from "~public/assets/rocket-4.webp";
 
 function HowRocketDoesIt() {
   return (
@@ -373,12 +377,7 @@ function FeaturesContainer() {
     return () => window.removeEventListener("scroll", throttledHandleScroll);
   }, [activeIndex]);
 
-  const images = [
-    "/assets/rocket-1.webp",
-    "/assets/rocket-2.webp",
-    "/assets/rocket-3.webp",
-    "/assets/rocket-4.webp", // Using rocket-1 again for the 4th feature
-  ];
+  const images: StaticImageData[] = [Rocket1, Rocket2, Rocket3, Rocket4];
 
   return (
     <div ref={containerRef} className="flex max-lg:flex-col gap-4">
@@ -391,6 +390,7 @@ function FeaturesContainer() {
                 <Image
                   key={index}
                   src={src}
+                  placeholder="blur"
                   alt={`feature-section-image-${index + 1}`}
                   width={1000}
                   height={1200}
