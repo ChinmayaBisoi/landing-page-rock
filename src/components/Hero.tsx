@@ -211,22 +211,13 @@ function HeroIntegrations() {
 }
 
 export default function Hero() {
-  useEffect(() => {
-    const preloadLink = document.createElement("link");
-
-    preloadLink.rel = "preload";
-    preloadLink.as = "image";
-    preloadLink.href = "/assets/hero.webp";
-    document.head.appendChild(preloadLink);
-  }, []);
-
   return (
     <div className="overflow-hidden">
       <div className="min-h-screen max-w-[1920px] mx-auto max-sm:min-h-auto flex flex-col w-full bg-foundation-white home_page relative overlay_bg !min-h-auto">
         {/*  */}
         <Image
-          // placeholder="blur"
-          src={"/assets/hero.webp"}
+          placeholder="blur"
+          src={HeroImage}
           alt="Hero"
           width={1920}
           height={1080}
