@@ -845,8 +845,8 @@ function TestimonialsContent() {
       <div className="flex flex-col gap-8">
         <div className="overflow-hidden relative">
           <div className="flex gap-0 marquee-left" style={{ width: "4800px" }}>
-            {testimonialsLeft.map((testimonial) => (
-              <TestimonialCard key={testimonial.title} {...testimonial} />
+            {testimonialsLeft.map((testimonial, idx) => (
+              <TestimonialCard key={idx + testimonial.title} {...testimonial} />
             ))}
           </div>
         </div>
@@ -855,8 +855,8 @@ function TestimonialsContent() {
             className="flex gap-0 marquee-right justify-end"
             style={{ width: "4800px" }}
           >
-            {testimonialsRight.map((testimonial) => (
-              <TestimonialCard key={testimonial.title} {...testimonial} />
+            {testimonialsRight.map((testimonial, idx) => (
+              <TestimonialCard key={idx + testimonial.title} {...testimonial} />
             ))}
           </div>
         </div>

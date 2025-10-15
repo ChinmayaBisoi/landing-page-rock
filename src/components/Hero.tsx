@@ -222,6 +222,12 @@ export default function Hero() {
           width={1920}
           height={1080}
           className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom"
+          style={{
+            backgroundImage: "url(/assets/hero-small.webp)",
+            backgroundSize: "cover",
+            backgroundPosition: "bottom",
+            backgroundRepeat: "no-repeat",
+          }}
           priority
         />
         <div className="hero_section">

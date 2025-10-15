@@ -156,11 +156,7 @@ function SocialsAndFooter() {
           </ul>
           <div className="w-[1px] h-[10px] mx-2 bg-white max-sm:hidden"></div>
           <div className="flex items-center max-sm:flex-wrap gap-4 justify-center">
-            <p
-              className="text-[14px] leading-[150%] text-onColor-body absolute left-0 right-0 text-center mx-auto bottom-2"
-              data-sentry-element="Text"
-              data-sentry-source-file="Footer.tsx"
-            >
+            <p className="text-[14px] leading-[150%] text-onColor-body absolute left-0 right-0 text-center mx-auto bottom-2">
               © 2025 DhiWise USA Inc.
             </p>
             <a className="cursor-pointer">
@@ -194,18 +190,10 @@ function StartBuildingNow() {
       <div className="container relative z-2">
         <div className="flex flex-col gap-8 w-full">
           <div className="flex flex-col grow gap-2 text-center max-sm:px-4 ">
-            <p
-              className="text-[48px] leading-[120%] max-sm:text-[32px] font-semibold text-onColor-heading"
-              data-sentry-element="Text"
-              data-sentry-source-file="Footer.tsx"
-            >
+            <p className="text-[48px] leading-[120%] max-sm:text-[32px] font-semibold text-onColor-heading">
               Start building, now!
             </p>
-            <p
-              className="text-[18px] leading-[150%] text-onColor-heading"
-              data-sentry-element="Text"
-              data-sentry-source-file="Footer.tsx"
-            >
+            <p className="text-[18px] leading-[150%] text-onColor-heading">
               Production-ready apps and websites in minutes, not months.
             </p>
           </div>
