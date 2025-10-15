@@ -4,7 +4,6 @@ import TextType from "~/components/TextType";
 import WizardForm from "~/components/WizardForm";
 import Navbar from "~/components/Navbar";
 import HeroImage from "~public/assets/hero.webp";
-import { useEffect } from "react";
 
 function HeroHeading() {
   return (
@@ -230,7 +229,7 @@ export default function Hero() {
             alt="Hero"
             width={1920}
             height={1080}
-            className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom opacity-0"
+            className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom"
             priority
           />
         </div>
