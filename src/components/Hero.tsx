@@ -215,12 +215,7 @@ export default function Hero() {
     <div className="overflow-hidden">
       <div className="min-h-screen max-w-[1920px] mx-auto max-sm:min-h-auto flex flex-col w-full bg-foundation-white home_page relative overlay_bg !min-h-auto">
         {/*  */}
-        <Image
-          placeholder="blur"
-          src={HeroImage}
-          alt="Hero"
-          width={1920}
-          height={1080}
+        <div
           className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom"
           style={{
             backgroundImage: "url(/assets/hero-small.webp)",
@@ -228,8 +223,17 @@ export default function Hero() {
             backgroundPosition: "bottom",
             backgroundRepeat: "no-repeat",
           }}
-          priority
-        />
+        >
+          <Image
+            placeholder="blur"
+            src={HeroImage}
+            alt="Hero"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 w-full h-full max-h-full object-cover object-bottom opacity-0"
+            priority
+          />
+        </div>
         <div className="hero_section">
           <div className="flex flex-col">
             <Navbar />

@@ -18,19 +18,16 @@ function TrustedBy() {
                 loading="lazy"
                 width="2500"
                 height="140"
-                decoding="async"
-                className="object-contain"
+                className="object-contain w-auto"
                 src="/assets/trusted-by.webp"
                 style={{ color: "transparent" }}
               />
-
               <Image
                 alt="customer"
                 loading="lazy"
                 width="2500"
                 height="140"
-                decoding="async"
-                className="object-contain"
+                className="object-contain w-auto"
                 src="/assets/trusted-by.webp"
                 style={{ color: "transparent" }}
               />
